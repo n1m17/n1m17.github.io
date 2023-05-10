@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Send PUT Request on Load</title>
+  </head>
+  <body onload="sendPutRequest()">
+    <script>
+      function sendPutRequest() {
+        const url = "https://l7tbx3isq82daxpm0hlgmatquh07ow.oastify.com";
+        const data = { key: "value" };
+        const options = {
+          method: "PUT",
+          headers: { "X-Custom-Header": "custom-value" },
+          body: JSON.stringify(data),
+        };
+        fetch(url, options)
+          .then(response => response.json())
+          .then(data => console.log(data))
+          .catch(error => console.error(error));
+      }
+    </script>
+  </body>
+</html>
