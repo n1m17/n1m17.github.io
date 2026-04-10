@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — PentesterHub</title>
+  <meta name="description" content="PentesterHub Privacy Policy — how we collect, use, and protect your personal data." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://pentesterhub.com/privacy-policy.html" />
+  <link rel="icon" type="image/png" href="assets/logo-dark.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .legal-hero {
+      padding: calc(var(--nav-h) + 60px) 0 60px;
+      border-bottom: 1px solid var(--border);
+    }
+    .legal-hero .section-label { margin-bottom: 0.75rem; }
+    .legal-hero h1 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 0.75rem;
+    }
+    .legal-meta {
+      font-size: 0.85rem;
+      color: var(--text-dim);
+      margin-top: 0.5rem;
+    }
+    .legal-body {
+      padding: 72px 0 100px;
+    }
+    .legal-layout {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+    .legal-toc {
+      position: sticky;
+      top: calc(var(--nav-h) + 24px);
+    }
+    .legal-toc h4 {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 1rem;
+    }
+    .legal-toc ul { display: flex; flex-direction: column; gap: 0.5rem; }
+    .legal-toc a {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      transition: color var(--trans);
+      line-height: 1.4;
+    }
+    .legal-toc a:hover { color: var(--accent); }
+    .legal-content h2 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--white);
+      margin: 2.75rem 0 0.85rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+    }
+    .legal-content h2:first-child { border-top: none; margin-top: 0; padding-top: 0; }
+    .legal-content h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text);
+      margin: 1.5rem 0 0.5rem;
+    }
+    .legal-content p {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.85;
+      margin-bottom: 1rem;
+    }
+    .legal-content ul {
+      list-style: none;
+      margin: 0.5rem 0 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+    }
+    .legal-content ul li {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      padding-left: 1.25rem;
+      position: relative;
+    }
+    .legal-content ul li::before {
+      content: '–';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+    }
+    .legal-content a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+    .legal-highlight {
+      background: rgba(0,191,255,0.05);
+      border: 1px solid rgba(0,191,255,0.15);
+      border-radius: 10px;
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0;
+    }
+    .legal-highlight p { margin-bottom: 0; color: var(--text); }
+    @media (max-width: 768px) {
+      .legal-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+      .legal-toc { position: static; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav id="navbar" class="scrolled" role="navigation" aria-label="Main navigation">
+    <div class="container nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="PentesterHub — Home">
+        <img src="assets/logo-dark.png" alt="PentesterHub logo" height="40" />
+        <span class="nav-logo-text">PENTESTER <span class="nav-logo-accent">HUB</span></span>
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="index.html#services">Services</a></li>
+        <li><a href="index.html#why">Why Us</a></li>
+        <li><a href="index.html#certifications">Certifications</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+        <li><a href="/blog" target="_blank" rel="noopener">Blog</a></li>
+        <li><a href="index.html#contact" class="nav-cta">Get a Quote</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger-btn" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="nav-drawer">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div id="nav-drawer" class="nav-drawer" role="dialog" aria-label="Mobile navigation" aria-modal="true">
+    <a href="index.html#services">Services</a>
+    <a href="index.html#why">Why Us</a>
+    <a href="index.html#certifications">Certifications</a>
+    <a href="index.html#contact">Contact</a>
+    <a href="/blog" target="_blank" rel="noopener">Blog ↗</a>
+  </div>
+
+  <!-- HERO -->
+  <div class="legal-hero">
+    <div class="container">
+      <span class="section-label">Legal</span>
+      <h1>Privacy Policy</h1>
+      <p class="legal-meta">Last updated: 1 January 2026 &nbsp;·&nbsp; Effective date: 1 January 2026</p>
+    </div>
+  </div>
+
+  <!-- BODY -->
+  <div class="legal-body">
+    <div class="container">
+      <div class="legal-layout">
+
+        <!-- TOC -->
+        <aside class="legal-toc">
+          <h4>Contents</h4>
+          <ul>
+            <li><a href="#overview">1. Overview</a></li>
+            <li><a href="#data-collected">2. Data We Collect</a></li>
+            <li><a href="#how-we-use">3. How We Use Your Data</a></li>
+            <li><a href="#third-parties">4. Third-Party Services</a></li>
+            <li><a href="#retention">5. Data Retention</a></li>
+            <li><a href="#security">6. Data Security</a></li>
+            <li><a href="#your-rights">7. Your Rights</a></li>
+            <li><a href="#cookies">8. Cookies</a></li>
+            <li><a href="#children">9. Children's Privacy</a></li>
+            <li><a href="#changes">10. Changes to This Policy</a></li>
+            <li><a href="#contact-us">11. Contact Us</a></li>
+          </ul>
+        </aside>
+
+        <!-- CONTENT -->
+        <article class="legal-content">
+
+          <div class="legal-highlight">
+            <p>PentesterHub is committed to protecting your privacy. This policy explains what personal data we collect, how we use it, and the rights you have over it. We do not sell your data to anyone.</p>
+          </div>
+
+          <h2 id="overview">1. Overview</h2>
+          <p>PentesterHub ("we", "us", "our") operates the website at <a href="https://pentesterhub.com">pentesterhub.com</a> and provides professional penetration testing and cybersecurity services. This Privacy Policy applies to all personal data collected through our website and the services we provide.</p>
+          <p>By using our website or submitting an enquiry, you acknowledge that you have read and understood this policy.</p>
+
+          <h2 id="data-collected">2. Data We Collect</h2>
+          <h3>Information you provide directly</h3>
+          <p>When you submit our contact form or request a quote, we collect:</p>
+          <ul>
+            <li>Full name and job title</li>
+            <li>Company or organisation name</li>
+            <li>Business email address</li>
+            <li>Phone number (optional)</li>
+            <li>Service requirements and any information you include in your message</li>
+          </ul>
+          <h3>Information collected automatically</h3>
+          <p>When you visit our website, basic technical data may be collected by your browser or our hosting provider, including your IP address, browser type, operating system, referring URL, and pages visited. We do not use tracking pixels or analytics scripts.</p>
+
+          <h2 id="how-we-use">3. How We Use Your Data</h2>
+          <p>We use your personal data only for the purposes for which it was provided:</p>
+          <ul>
+            <li>To respond to your enquiry and provide you with a tailored proposal</li>
+            <li>To deliver contracted penetration testing or consultancy services</li>
+            <li>To send engagement-related communications (project updates, reports, invoices)</li>
+            <li>To comply with legal and regulatory obligations</li>
+          </ul>
+          <p>We will never use your data for unsolicited marketing without your explicit consent.</p>
+
+          <h2 id="third-parties">4. Third-Party Services</h2>
+          <p>Our website uses the following third-party services:</p>
+          <ul>
+            <li><strong>FormSubmit</strong> — processes contact form submissions and forwards them to our email. FormSubmit may temporarily store submitted data. Please review <a href="https://formsubmit.co/privacy.pdf" target="_blank" rel="noopener">FormSubmit's privacy policy</a>.</li>
+            <li><strong>Google Fonts</strong> — our website loads the Inter typeface from Google's CDN. This may result in your IP address being sent to Google. Please review <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's privacy policy</a>.</li>
+            <li><strong>GitHub Pages</strong> — our website is hosted on GitHub Pages. GitHub may log basic access data. Please review <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener">GitHub's privacy policy</a>.</li>
+          </ul>
+          <p>We do not share your personal data with any other third parties without your explicit consent, except where required by law.</p>
+
+          <h2 id="retention">5. Data Retention</h2>
+          <p>We retain personal data only for as long as necessary to fulfil the purpose for which it was collected:</p>
+          <ul>
+            <li>Enquiry data (unconverted leads): up to 12 months</li>
+            <li>Client project data: up to 5 years from project completion, in line with standard business record-keeping</li>
+            <li>Financial records: as required by applicable law (typically 7 years)</li>
+          </ul>
+          <p>After the applicable retention period, data is securely deleted or anonymised.</p>
+
+          <h2 id="security">6. Data Security</h2>
+          <p>Given the nature of our business, we take data security extremely seriously. We apply industry-standard technical and organisational measures to protect personal data against unauthorised access, disclosure, alteration, or destruction. All client deliverables, reports, and sensitive communications are handled under strict confidentiality controls.</p>
+          <p>Despite our best efforts, no method of transmission over the internet is 100% secure. If you have specific data security requirements, please contact us to discuss secure transfer options.</p>
+
+          <h2 id="your-rights">7. Your Rights</h2>
+          <p>Depending on your jurisdiction, you may have the following rights regarding your personal data:</p>
+          <ul>
+            <li><strong>Access</strong> — request a copy of the personal data we hold about you</li>
+            <li><strong>Rectification</strong> — request correction of inaccurate or incomplete data</li>
+            <li><strong>Erasure</strong> — request deletion of your data where there is no lawful basis for continued processing</li>
+            <li><strong>Restriction</strong> — request that we restrict processing of your data</li>
+            <li><strong>Portability</strong> — request your data in a structured, machine-readable format</li>
+            <li><strong>Objection</strong> — object to processing based on legitimate interests</li>
+          </ul>
+          <p>To exercise any of these rights, email us at <a href="mailto:info@pentesterhub.com">info@pentesterhub.com</a>. We will respond within 30 days.</p>
+
+          <h2 id="cookies">8. Cookies</h2>
+          <p>Our website does not use advertising cookies, tracking cookies, or analytics cookies. The only data stored in your browser is limited to essential session functionality required for the website to operate correctly. No consent banner is required because we do not place non-essential cookies.</p>
+
+          <h2 id="children">9. Children's Privacy</h2>
+          <p>Our website and services are intended for business professionals and organisations. We do not knowingly collect personal data from individuals under the age of 18. If you believe we have inadvertently collected such data, please contact us immediately and we will delete it.</p>
+
+          <h2 id="changes">10. Changes to This Policy</h2>
+          <p>We may update this Privacy Policy from time to time to reflect changes in our practices or applicable law. When we make material changes, we will update the "Last updated" date at the top of this page. We encourage you to review this policy periodically.</p>
+
+          <h2 id="contact-us">11. Contact Us</h2>
+          <p>If you have any questions, concerns, or requests regarding this Privacy Policy or the handling of your personal data, please contact us:</p>
+          <ul>
+            <li>Email: <a href="mailto:info@pentesterhub.com">info@pentesterhub.com</a></li>
+            <li>LinkedIn: <a href="https://www.linkedin.com/company/pentesterhub" target="_blank" rel="noopener">linkedin.com/company/pentesterhub</a></li>
+          </ul>
+
+        </article>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer role="contentinfo">
+    <div class="container">
+      <div class="footer-bottom" style="border-top:none; padding-top:0;">
+        <p class="footer-copy">&copy; 2026 PentesterHub. All rights reserved.</p>
+        <nav class="footer-legal" aria-label="Legal links">
+          <a href="privacy-policy.html">Privacy Policy</a>
+          <a href="terms-of-service.html">Terms of Service</a>
+          <a href="responsible-disclosure.html">Responsible Disclosure</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

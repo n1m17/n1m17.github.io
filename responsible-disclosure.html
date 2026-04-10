@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Responsible Disclosure Policy — PentesterHub</title>
+  <meta name="description" content="PentesterHub's Responsible Disclosure Policy — how to report security vulnerabilities found on our infrastructure." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://pentesterhub.com/responsible-disclosure.html" />
+  <link rel="icon" type="image/png" href="assets/logo-dark.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .legal-hero { padding: calc(var(--nav-h) + 60px) 0 60px; border-bottom: 1px solid var(--border); }
+    .legal-hero .section-label { margin-bottom: 0.75rem; }
+    .legal-hero h1 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; color: var(--white); margin-bottom: 0.75rem; }
+    .legal-meta { font-size: 0.85rem; color: var(--text-dim); margin-top: 0.5rem; }
+    .legal-body { padding: 72px 0 100px; }
+    .legal-layout { display: grid; grid-template-columns: 220px 1fr; gap: 5rem; align-items: start; }
+    .legal-toc { position: sticky; top: calc(var(--nav-h) + 24px); }
+    .legal-toc h4 { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 1rem; }
+    .legal-toc ul { display: flex; flex-direction: column; gap: 0.5rem; }
+    .legal-toc a { font-size: 0.82rem; color: var(--text-muted); transition: color var(--trans); line-height: 1.4; }
+    .legal-toc a:hover { color: var(--accent); }
+    .legal-content h2 { font-size: 1.25rem; font-weight: 700; color: var(--white); margin: 2.75rem 0 0.85rem; padding-top: 2rem; border-top: 1px solid var(--border); }
+    .legal-content h2:first-child { border-top: none; margin-top: 0; padding-top: 0; }
+    .legal-content h3 { font-size: 1rem; font-weight: 600; color: var(--text); margin: 1.5rem 0 0.5rem; }
+    .legal-content p { font-size: 0.92rem; color: var(--text-muted); line-height: 1.85; margin-bottom: 1rem; }
+    .legal-content ul { list-style: none; margin: 0.5rem 0 1rem; display: flex; flex-direction: column; gap: 0.45rem; }
+    .legal-content ul li { font-size: 0.92rem; color: var(--text-muted); line-height: 1.7; padding-left: 1.25rem; position: relative; }
+    .legal-content ul li::before { content: '–'; position: absolute; left: 0; color: var(--accent); }
+    .legal-content a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+    .legal-highlight { background: rgba(0,191,255,0.05); border: 1px solid rgba(0,191,255,0.15); border-radius: 10px; padding: 1.25rem 1.5rem; margin: 1.5rem 0; }
+    .legal-highlight p { margin-bottom: 0; color: var(--text); }
+    .scope-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1.25rem 0; }
+    .scope-box { background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem 1.5rem; }
+    .scope-box h4 { font-size: 0.82rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.75rem; }
+    .scope-box.in-scope h4 { color: #00DDA8; }
+    .scope-box.out-scope h4 { color: #FF6B6B; }
+    .scope-box ul { margin: 0; }
+    .timeline { display: flex; flex-direction: column; gap: 0; margin: 1.5rem 0; }
+    .timeline-item { display: flex; gap: 1.25rem; padding-bottom: 1.5rem; position: relative; }
+    .timeline-item:not(:last-child)::before { content:''; position:absolute; left:17px; top:36px; bottom:0; width:1px; background:var(--border); }
+    .timeline-dot { flex-shrink:0; width:36px; height:36px; border-radius:50%; background:rgba(0,191,255,0.1); border:1.5px solid rgba(0,191,255,0.3); display:flex; align-items:center; justify-content:center; font-size:0.75rem; font-weight:700; color:var(--accent); }
+    .timeline-content h4 { font-size:0.9rem; font-weight:700; color:var(--white); margin-bottom:0.3rem; }
+    .timeline-content p { font-size:0.85rem; color:var(--text-muted); margin:0; line-height:1.6; }
+    .report-card { background: var(--bg-card); border: 1px solid rgba(0,191,255,0.2); border-radius: 12px; padding: 1.75rem; margin: 1.5rem 0; }
+    .report-card h4 { font-size: 1rem; font-weight: 700; color: var(--white); margin-bottom: 1rem; }
+    .report-card code { display: block; background: var(--bg); border: 1px solid var(--border); border-radius: 6px; padding: 0.85rem 1rem; font-family: 'Courier New', monospace; font-size: 0.82rem; color: var(--accent); margin-bottom: 0.75rem; word-break: break-all; }
+    @media (max-width: 768px) { .legal-layout { grid-template-columns: 1fr; gap: 2.5rem; } .legal-toc { position: static; } .scope-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav id="navbar" class="scrolled" role="navigation" aria-label="Main navigation">
+    <div class="container nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="PentesterHub — Home">
+        <img src="assets/logo-dark.png" alt="PentesterHub logo" height="40" />
+        <span class="nav-logo-text">PENTESTER <span class="nav-logo-accent">HUB</span></span>
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="index.html#services">Services</a></li>
+        <li><a href="index.html#why">Why Us</a></li>
+        <li><a href="index.html#certifications">Certifications</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+        <li><a href="/blog" target="_blank" rel="noopener">Blog</a></li>
+        <li><a href="index.html#contact" class="nav-cta">Get a Quote</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger-btn" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="nav-drawer">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div id="nav-drawer" class="nav-drawer" role="dialog" aria-label="Mobile navigation" aria-modal="true">
+    <a href="index.html#services">Services</a>
+    <a href="index.html#why">Why Us</a>
+    <a href="index.html#certifications">Certifications</a>
+    <a href="index.html#contact">Contact</a>
+    <a href="/blog" target="_blank" rel="noopener">Blog ↗</a>
+  </div>
+
+  <!-- HERO -->
+  <div class="legal-hero">
+    <div class="container">
+      <span class="section-label">Security</span>
+      <h1>Responsible Disclosure Policy</h1>
+      <p class="legal-meta">Last updated: 1 January 2026 &nbsp;·&nbsp; We appreciate the security research community.</p>
+    </div>
+  </div>
+
+  <!-- BODY -->
+  <div class="legal-body">
+    <div class="container">
+      <div class="legal-layout">
+
+        <!-- TOC -->
+        <aside class="legal-toc">
+          <h4>Contents</h4>
+          <ul>
+            <li><a href="#introduction">1. Introduction</a></li>
+            <li><a href="#scope">2. Scope</a></li>
+            <li><a href="#how-to-report">3. How to Report</a></li>
+            <li><a href="#response-timeline">4. Response Timeline</a></li>
+            <li><a href="#safe-harbour">5. Safe Harbour</a></li>
+            <li><a href="#our-commitments">6. Our Commitments</a></li>
+            <li><a href="#researcher-guidelines">7. Researcher Guidelines</a></li>
+            <li><a href="#out-of-scope-behaviour">8. Out-of-Scope Behaviour</a></li>
+            <li><a href="#recognition">9. Recognition</a></li>
+            <li><a href="#contact">10. Contact</a></li>
+          </ul>
+        </aside>
+
+        <!-- CONTENT -->
+        <article class="legal-content">
+
+          <div class="legal-highlight">
+            <p>We believe responsible security research makes the internet safer. If you discover a vulnerability in our infrastructure, please tell us privately before disclosing it publicly. We commit to working with you in good faith and will not take legal action against researchers who act responsibly.</p>
+          </div>
+
+          <h2 id="introduction">1. Introduction</h2>
+          <p>PentesterHub takes the security of our own infrastructure seriously. Despite our best efforts as a security-focused company, vulnerabilities may exist. We welcome responsible security researchers who identify and report issues in a responsible manner.</p>
+          <p>This policy outlines how to report vulnerabilities, what you can expect from us, and the protections we extend to researchers who act in good faith.</p>
+
+          <h2 id="scope">2. Scope</h2>
+          <p>This policy applies to vulnerabilities found in PentesterHub-owned infrastructure:</p>
+
+          <div class="scope-grid">
+            <div class="scope-box in-scope">
+              <h4>✓ In Scope</h4>
+              <ul>
+                <li>pentesterhub.com and all subdomains</li>
+                <li>Our web application and contact form</li>
+                <li>Authentication mechanisms (if any)</li>
+                <li>Infrastructure directly operated by PentesterHub</li>
+              </ul>
+            </div>
+            <div class="scope-box out-scope">
+              <h4>✗ Out of Scope</h4>
+              <ul>
+                <li>Third-party services (FormSubmit, GitHub Pages, Google Fonts)</li>
+                <li>Social media accounts (LinkedIn)</li>
+                <li>Our clients' systems and infrastructure</li>
+                <li>Physical security of our premises</li>
+                <li>Social engineering attacks against our staff</li>
+              </ul>
+            </div>
+          </div>
+
+          <p>Vulnerabilities found in third-party services we use should be reported directly to those vendors through their respective disclosure programmes.</p>
+
+          <h2 id="how-to-report">3. How to Report</h2>
+          <p>Please send your vulnerability report to us via email. Include as much detail as possible to help us reproduce and verify the issue quickly.</p>
+
+          <div class="report-card">
+            <h4>Reporting Contact</h4>
+            <code>info@pentesterhub.com</code>
+            <p style="font-size:0.85rem;color:var(--text-muted);margin:0;">Use subject line: <strong style="color:var(--text);">[Security Disclosure] — Brief description</strong></p>
+          </div>
+
+          <h3>What to include in your report</h3>
+          <ul>
+            <li>A clear description of the vulnerability type (e.g. XSS, IDOR, SSRF)</li>
+            <li>The URL, endpoint, or component affected</li>
+            <li>Step-by-step reproduction instructions</li>
+            <li>Proof-of-concept code, screenshots, or video (if available)</li>
+            <li>Your assessment of the potential impact</li>
+            <li>Your name or alias (for acknowledgement purposes, optional)</li>
+          </ul>
+          <p>The more detail you provide, the faster we can triage and address the issue.</p>
+
+          <h2 id="response-timeline">4. Response Timeline</h2>
+          <p>We commit to the following response timeline for valid vulnerability reports:</p>
+
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-dot">1</div>
+              <div class="timeline-content">
+                <h4>Acknowledgement — within 48 hours</h4>
+                <p>We will confirm receipt of your report and provide an initial reference number.</p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot">2</div>
+              <div class="timeline-content">
+                <h4>Triage — within 5 business days</h4>
+                <p>We will assess the validity and severity of the reported vulnerability and keep you informed of our findings.</p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot">3</div>
+              <div class="timeline-content">
+                <h4>Remediation — within 30 days (critical: 7 days)</h4>
+                <p>We aim to remediate confirmed vulnerabilities promptly. Complex issues may take longer; we will communicate timelines clearly.</p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot">4</div>
+              <div class="timeline-content">
+                <h4>Disclosure coordination — mutually agreed</h4>
+                <p>We are open to coordinated public disclosure after the vulnerability has been remediated. We will work with you on timing.</p>
+              </div>
+            </div>
+          </div>
+
+          <h2 id="safe-harbour">5. Safe Harbour</h2>
+          <p>PentesterHub extends safe harbour to security researchers who:</p>
+          <ul>
+            <li>Report vulnerabilities in good faith, without intent to cause harm</li>
+            <li>Do not access, modify, or exfiltrate data beyond what is necessary to demonstrate the vulnerability</li>
+            <li>Do not disrupt the availability of our services</li>
+            <li>Do not conduct automated scanning at a scale that impacts service availability</li>
+            <li>Report the vulnerability to us before disclosing publicly</li>
+            <li>Give us reasonable time to remediate before disclosure</li>
+          </ul>
+          <p>If you act in good faith and in accordance with these guidelines, we will not pursue civil or criminal action against you, and we will not refer your activities to law enforcement. We consider responsible security research to be a valuable contribution to the security community.</p>
+
+          <h2 id="our-commitments">6. Our Commitments to Researchers</h2>
+          <ul>
+            <li>We will respond to all valid reports within 48 hours</li>
+            <li>We will keep you informed of our remediation progress</li>
+            <li>We will not take legal action against researchers who act in good faith</li>
+            <li>We will acknowledge your contribution (with your permission) upon remediation</li>
+            <li>We will work with you on coordinated disclosure timing</li>
+            <li>We will notify you when the vulnerability has been fixed so you can verify</li>
+          </ul>
+
+          <h2 id="researcher-guidelines">7. Researcher Guidelines</h2>
+          <p>To ensure your research stays within safe and legal boundaries, please follow these guidelines:</p>
+          <ul>
+            <li>Only test against systems explicitly listed as in-scope</li>
+            <li>Do not access, download, modify, or delete any user or company data</li>
+            <li>Do not perform denial-of-service attacks or resource exhaustion testing</li>
+            <li>Do not use automated scanners at high request rates that may impact availability</li>
+            <li>Do not conduct social engineering, phishing, or physical intrusion attempts</li>
+            <li>Do not exploit a vulnerability beyond what is necessary to demonstrate its existence</li>
+            <li>Stop testing immediately if you encounter any personal or sensitive data</li>
+          </ul>
+
+          <h2 id="out-of-scope-behaviour">8. Out-of-Scope Behaviour</h2>
+          <p>The following will not be considered valid disclosures and are explicitly excluded from safe harbour protections:</p>
+          <ul>
+            <li>Attacks involving physical access to our infrastructure</li>
+            <li>Social engineering or phishing of PentesterHub staff</li>
+            <li>Automated vulnerability scanning without prior notification</li>
+            <li>Reports of missing security headers without demonstrable impact</li>
+            <li>Self-XSS vulnerabilities requiring the victim to run their own code</li>
+            <li>Reports about software versions without demonstrated exploitability</li>
+            <li>Theoretical vulnerabilities without proof of concept</li>
+            <li>Any vulnerability in third-party services outside our control</li>
+          </ul>
+
+          <h2 id="recognition">9. Recognition</h2>
+          <p>While we do not currently operate a paid bug bounty programme, we deeply value the work of the security research community. Valid, responsibly reported vulnerabilities will be acknowledged in a Hall of Thanks (upon your consent) on our website once the issue has been remediated.</p>
+          <p>We are open to discussing formal bug bounty arrangements for researchers who identify high-severity vulnerabilities. Please reach out to discuss.</p>
+
+          <h2 id="contact">10. Contact</h2>
+          <p>To report a vulnerability or to ask questions about this policy:</p>
+          <ul>
+            <li>Email: <a href="mailto:info@pentesterhub.com">info@pentesterhub.com</a></li>
+            <li>Subject line: <strong>[Security Disclosure] — Brief description</strong></li>
+            <li>LinkedIn: <a href="https://www.linkedin.com/company/pentesterhub" target="_blank" rel="noopener">linkedin.com/company/pentesterhub</a></li>
+          </ul>
+          <p>We thank the security research community for helping keep the internet safer.</p>
+
+        </article>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer role="contentinfo">
+    <div class="container">
+      <div class="footer-bottom" style="border-top:none; padding-top:0;">
+        <p class="footer-copy">&copy; 2026 PentesterHub. All rights reserved.</p>
+        <nav class="footer-legal" aria-label="Legal links">
+          <a href="privacy-policy.html">Privacy Policy</a>
+          <a href="terms-of-service.html">Terms of Service</a>
+          <a href="responsible-disclosure.html">Responsible Disclosure</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
