@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thank You — PentesterHub</title>
+  <meta name="description" content="Thank you for contacting PentesterHub. We'll be in touch within 24 hours." />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" type="image/png" href="assets/logo-dark.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .ty-wrapper {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+    }
+    .ty-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 4rem 3rem;
+      max-width: 560px;
+      width: 100%;
+    }
+    .ty-icon {
+      width: 72px;
+      height: 72px;
+      background: rgba(0, 191, 255, 0.08);
+      border: 1.5px solid rgba(0, 191, 255, 0.25);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 2rem;
+      color: var(--accent);
+    }
+    .ty-icon svg { width: 32px; height: 32px; }
+    .ty-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+    .ty-title {
+      font-size: clamp(1.75rem, 4vw, 2.4rem);
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+    .ty-sub {
+      font-size: 1rem;
+      color: var(--text-muted);
+      line-height: 1.75;
+      margin-bottom: 2.5rem;
+    }
+    .ty-actions {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .ty-divider {
+      width: 48px;
+      height: 2px;
+      background: var(--accent);
+      border-radius: 2px;
+      margin: 0 auto 1.5rem;
+      box-shadow: 0 0 10px rgba(0,191,255,0.4);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav id="navbar" class="scrolled" role="navigation" aria-label="Main navigation">
+    <div class="container nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="PentesterHub — Home">
+        <img src="assets/logo-dark.png" alt="PentesterHub logo" height="40" />
+        <span class="nav-logo-text">PENTESTER <span class="nav-logo-accent">HUB</span></span>
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="index.html#services">Services</a></li>
+        <li><a href="index.html#why">Why Us</a></li>
+        <li><a href="index.html#certifications">Certifications</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+        <li><a href="/blog" target="_blank" rel="noopener">Blog</a></li>
+        <li><a href="index.html#contact" class="nav-cta">Get a Quote</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger-btn" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="nav-drawer">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div id="nav-drawer" class="nav-drawer" role="dialog" aria-label="Mobile navigation" aria-modal="true">
+    <a href="index.html#services">Services</a>
+    <a href="index.html#why">Why Us</a>
+    <a href="index.html#certifications">Certifications</a>
+    <a href="index.html#contact">Contact</a>
+    <a href="/blog" target="_blank" rel="noopener">Blog ↗</a>
+  </div>
+
+  <!-- THANK YOU -->
+  <div class="ty-wrapper">
+    <div class="ty-card">
+
+      <div class="ty-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+          <polyline points="22 4 12 14.01 9 11.01"/>
+        </svg>
+      </div>
+
+      <div class="ty-label">Message Received</div>
+      <div class="ty-divider"></div>
+      <h1 class="ty-title">Thank You for Reaching Out</h1>
+      <p class="ty-sub">
+        We've received your enquiry and one of our security specialists will get back to you within <strong style="color:var(--white);">24 hours</strong>. In the meantime, feel free to explore our services or connect with us on LinkedIn.
+      </p>
+
+      <div class="ty-actions">
+        <a href="index.html" class="btn btn-primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+          Back to Home
+        </a>
+        <a href="https://www.linkedin.com/company/pentesterhub" target="_blank" rel="noopener" class="btn btn-outline">
+          Connect on LinkedIn
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer role="contentinfo">
+    <div class="container">
+      <div class="footer-bottom" style="border-top:none; padding-top:0;">
+        <p class="footer-copy">&copy; 2026 PentesterHub. All rights reserved.</p>
+        <nav class="footer-legal" aria-label="Legal links">
+          <a href="privacy-policy.html">Privacy Policy</a>
+          <a href="terms-of-service.html">Terms of Service</a>
+          <a href="responsible-disclosure.html">Responsible Disclosure</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
